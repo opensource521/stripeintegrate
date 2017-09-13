@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+
+<style>
+{% block style %}
+/*.jumbotron {
+	background-color:#155A1E;
+	color:#FFF;
+
+}*/
+
+
+.buttonspace1 {
+  width:120px;
+
+}
+
+
+{% endblock %}
+</style>
+
+
+{% block special %}
+
+
+
+<div class="panel panel-default">
+<div class="panel-heading"><h4 class="panel-title"><b>Your Dashboard </b></h4></div>
+<div class="panel-body center"><br>
+
+
+
+
+    <div class='col-sm-6'>
+			<div class="panel panel-default">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading"><h4 class="panel-title"><b>Profile Activity  </b><i class="fa fa-line-chart fa-x"></i></h4></div>
+			  <div class="panel-body">
+
+          <b>Profile Favorited: {{comp_fav_count}} times</b>
+          <br><br>
+          <b>No. of views: {{nucomp_view_count}} times</b>
+          <br><br>
+			  	<b>Students who have viewed your profile: {{comp_view_count}}</b>
+			  	<br>
+			  	<br>
+
+
+			</div>
+			</div>
+    </div>
+
+
+    <div class='col-sm-6'>
+			<div class="panel panel-default">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading"><h4 class="panel-title"><b>Quick Links  </b><i class="fa fa-link fa-x"></i></h4></div>
+			  <div class="panel-body center">
+
+			    <a href='{{ request.user.teacher.get_absolute_url }}' data-action='show-spinner' class='btn btn-primary buttonspace' >Personal Details  <i class="fa fa-user fa-x"></i></a>
+
+			  </div>
+
+			</div>
+    </div>
+
+
+<div class='row'></div>
+
+        <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading"><h4 class="panel-title"><b>Account Subscription Details</b></h4></div>
+        <div class="panel-body"><br>
+
+          <div class='col-sm-6'>
+          <div class="panel panel-default">
+            <div class="panel-heading"><b>You currently have {{credits}} credits</b></div>
+            <div class="panel-body center">
+              <p><a href='{% url "AddCredits" %}' data-action='show-spinner' class='buttonspace1 btn btn-primary' >Add Credits  <i class="fa fa-usd fa-x"></i></a></p>
+            </div>
+          </div>
+          </div>
+
+
+
+        </div>
+        </div>
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
